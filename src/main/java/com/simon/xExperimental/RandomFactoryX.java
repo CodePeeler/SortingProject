@@ -49,7 +49,7 @@ public class RandomFactoryX {
 				randObj.generate(100);
 			}
 			arrayObj = array;
-		}		
+		}
 		return (List<T>) arrayObj;
 	}
 
