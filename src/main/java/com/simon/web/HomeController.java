@@ -1,25 +1,24 @@
 package com.simon.web;
 
+import com.simon.algorithms.SelectionSort;
+import com.simon.algorithms.SortAlgorithm;
+import com.simon.dom.Contact;
+import com.simon.dom.Trial;
+import com.simon.services.AlgorithmService;
+import com.simon.services.ContactService;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-//import org.springframework.web.bind.annotation.RestController;
-
-import com.simon.dom.Contact;
-import com.simon.dom.Shop;
-import com.simon.services.ContactService;
 
 /**
  * Handles requests for the application home page.
@@ -76,18 +75,22 @@ public class HomeController {
 		uiModel.addAttribute("contacts", contacts);
 		logger.info("No. of contacts: " + contacts.size());
 		return contacts;
-	}
+	}		
 	
-		
-	@RequestMapping(value="/jsoneg", method = RequestMethod.GET, headers="Accept=application/json")
-	public @ResponseBody Shop getShopInJSON() {
-		logger.info("Welcome /{name} ");
-		Shop shop = new Shop();
-		
-		shop.setStaffName(new String[]{"mkyong1", "mkyong2"});
-
-		return shop;
-
-	}
 	
+	@RequestMapping(value={"/sort"}, method=RequestMethod.GET, headers={"Accept=application/json"})
+	@ResponseBody
+	public Trial<Integer> getTrialInJSON() {
+		logger.info("At getTrialInJSON controller ");
+	
+		AlgorithmService algorithmService = new AlgorithmService();
+		SortAlgorithm<Integer> selectionSort = new SelectionSort<>();
+	
+		List<Trial<Integer>> resultSet = algorithmService.runTrial(10, "Integer", 1, selectionSort);
+	    Trial<Integer> trial = (Trial<Integer>)resultSet.get(0);
+	    //List<Integer> data = trial.getData();
+	    
+	    return trial;
+	  }
+
 }
