@@ -10,9 +10,7 @@ import com.simon.algorithms.SelectionSort;
 import com.simon.algorithms.SortAlgorithm;
 import com.simon.dom.Trial;
 import com.simon.util.RandomFactory;
-/***************
-  dev - Branch
-*/
+
 @Component
 public class AlgorithmService {
 
@@ -37,6 +35,7 @@ public class AlgorithmService {
 	*/
 	public List<Trial<Integer>> dumbTrial(int arraySize, String type, int numOfTrials) {
 		List<Trial<Integer>> trials = new ArrayList<Trial<Integer>>();
+
 		Trial<Integer> trial = new Trial<Integer>();
 		List<Integer> array = new ArrayList<>();
 
@@ -46,6 +45,7 @@ public class AlgorithmService {
 
 		trial.setData(array);
 		trials.add(trial);
+
 
 		return trials;
 	}
