@@ -40,7 +40,7 @@ public class AlgorithmService {
 		List<Integer> array = new ArrayList<>();
 
 		array.add(new Integer(1));
-		array.add(new Integer(7));
+		array.add(new Integer(8));
 		array.add(new Integer(1));
 
 		trial.setData(array);
