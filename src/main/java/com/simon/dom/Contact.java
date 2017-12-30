@@ -11,9 +11,17 @@ public class Contact {
 	private String lastName;
 	private DateTime birthDate;
 	private String description;
+	private String nationality;
 	private byte[] photo;
 	
-		/**
+	public void setNationality(String nat){
+		this.nationality = nat;
+	}
+	
+	public String getNationality(){
+		return nationality;
+	}
+	/**
 	 * @return the id
 	 */
 	public Long getId() {
