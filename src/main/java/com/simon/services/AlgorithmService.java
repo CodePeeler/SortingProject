@@ -39,7 +39,7 @@ public class AlgorithmService {
 		Trial<Integer> trial = new Trial<Integer>();
 		List<Integer> array = new ArrayList<>();
 
-		array.add(new Integer(1));
+		array.add(new Integer(5));
 		array.add(new Integer(8));
 		array.add(new Integer(0));
 
