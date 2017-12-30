@@ -97,4 +97,5 @@ public class Contact {
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
+
 }
