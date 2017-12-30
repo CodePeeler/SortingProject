@@ -15,5 +15,4 @@ public class ContactService {
 		contacts.add(new Contact());
 		return contacts;
 		}
-
 }
