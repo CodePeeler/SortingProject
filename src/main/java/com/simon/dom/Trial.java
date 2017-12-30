@@ -24,8 +24,4 @@ public class Trial<T> {
 		return executionTime;
 	}
 
-	public void setExecutionTime(double executionTime) {
-		this.executionTime = executionTime;
-	}
-
 }
