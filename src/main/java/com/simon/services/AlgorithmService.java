@@ -41,7 +41,7 @@ public class AlgorithmService {
 
 		array.add(new Integer(5));
 		array.add(new Integer(8));
-		array.add(new Integer(0));
+		array.add(new Integer(9));
 
 		trial.setData(array);
 		trials.add(trial);
