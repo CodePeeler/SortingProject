@@ -6,9 +6,24 @@ package com.simon.dom;
 //@XmlRootElement(name = "shop")
 public class Shop {
 
-	String name;
-	String staffName[];
+	private String name;
+	private String staffName[];
+	private String address;
 	
+	/**
+	 * @return the address
+	 */
+	public String getAddress() {
+		return address;
+	}
+
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	/**
 	 * @return the name
 	 */
