@@ -6,15 +6,15 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class UtilTestConfig {
-		
-	@Bean
-	@Profile("test") 
+	
+	@Profile("test")	
+	@Bean	 
 	public RandomDouble randomDouble() {
 		return new RandomDouble();
 	}
 	
-	@Bean
-	@Profile("test") 
+	@Profile("test")	
+	@Bean	 
 	public RandomInt randomInt() {
 		return new RandomInt(100);
 	}

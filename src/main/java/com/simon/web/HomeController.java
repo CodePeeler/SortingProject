@@ -55,6 +55,7 @@ public class HomeController {
 	public List<Trial<Integer>> getTrialInJSON(Model uiModel) {
 		logger.info("At getTrialInJSON controller ");
 		
+		//This info should come from ui - hard coded for testing purposes!
 		int arraySize = 10;
 		String arrayType = "Integer";
 		int numOfTrials = 1;
@@ -62,15 +63,13 @@ public class HomeController {
 	
 		List<Trial<Integer>> trials = algorithmService.runTrial(arraySize, arrayType, numOfTrials, selectionSort);
 		uiModel.addAttribute("trial", trials.get(0));
-	    //Trial<Integer> trial = (Trial<Integer>)resultSet.get(0);
-	    //List<Integer> data = trial.getData();	    
+	    
 	    return trials;
 	  }
 	
 	@RequestMapping(value={"/sort2"}, method=RequestMethod.GET)
 	public String getTrial(Model uiModel) {
-		logger.info("*** At getTrial controller ");
-		
+		logger.info("*** At getTrial controller ");		
 		
 		int arraySize = 10;
 		String arrayType = "Integer";
