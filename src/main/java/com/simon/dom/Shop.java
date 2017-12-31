@@ -9,6 +9,7 @@ public class Shop {
 	private String name;
 	private String staffName[];
 	private String address;
+	private String id;
 	
 	/**
 	 * @return the address
