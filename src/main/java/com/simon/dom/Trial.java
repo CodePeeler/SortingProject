@@ -23,4 +23,5 @@ public class Trial<T> {
 	public double getExecutionTime() {
 		return executionTime;
 	}
+
 }
