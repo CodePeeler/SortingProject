@@ -54,8 +54,8 @@ public class ContactControllerTest extends ControllerAbstractTest {
 		// Initialize list of contacts for mocked ContactService
 		Contact contact = new Contact();
 		contact.setId(1l);
-		contact.setFirstName("Simonxxxx");
-		contact.setLastName("Dornanxxxx");
+		contact.setFirstName("John");
+		contact.setLastName("Doe");
 		contacts.add(contact);
 	}
 	
