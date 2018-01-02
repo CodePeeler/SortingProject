@@ -3,8 +3,6 @@ package com.simon.algorithms;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.simon.util.RandomFactory;
-
 //FYI, O(n*log( n )). Java's Collection.sort() is an implementation of MergeSort.
 
 public class MergeSort<T extends Comparable<T>> implements SortAlgorithm<T>  {
