@@ -1,5 +1,6 @@
 package com.simon.algorithms;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.List;
@@ -23,8 +24,16 @@ public class MergeSortTest extends SortAbstractTest {
     }
 	
 	@Test
-    public void testSelectionSortIntegerAscending() {
-		//fail("No test... write test!");
+    public void testMergeSortIntegerAscending() {		
+		SortAlgorithm<Integer> mergeSort = new MergeSort<Integer>();
+		mergeSort.sort(intArray, Integer::compareTo);		
+		
+		for (int i = 0; i < intArray.size() - 1; i++) {
+	        if (intArray.get(i) > intArray.get(i + 1)) {
+	            fail("Fail, should be in ascending order");
+	        }
+	    }
+	    assertTrue(true);
 	}
 
 }
