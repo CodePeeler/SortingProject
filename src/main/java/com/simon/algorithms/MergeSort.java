@@ -57,17 +57,4 @@ public class MergeSort<T extends Comparable<T>> implements SortAlgorithm<T>  {
 		}
 	}
 	
-	public static void main(String[] args){	  
-		  List<Integer> array = RandomFactory.getRandomObjectList("Integer", 10);
-		  
-		  array.stream().map(x-> x+" ").forEach(System.out::print);
-		  
-		  SortAlgorithm<Integer> mergeSort = new MergeSort<Integer>();
-		  //mergeSort.sort(array, Integer::compareTo);
-		  mergeSort.sort(array, (a, b) -> (a > b) ? 0:1);
-		  
-		  System.out.println("\n\n");
-		  array.stream().map(x-> x+" ").forEach(System.out::print);  
-		  
-		}
 }
