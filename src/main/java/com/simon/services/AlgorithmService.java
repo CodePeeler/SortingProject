@@ -27,7 +27,7 @@ public class AlgorithmService {
 		/* Using a factory to create the required algorithm as
 		 * specified in the trial.
 		 */
-		SortAlgorithm<T> sortAlgorithm = AlgorithmFactory.getSortingAlgorithm("MergeSort");
+		SortAlgorithm<T> sortAlgorithm = AlgorithmFactory.getSortingAlgorithm(trial.getSortAlgorithm());
 		
 		/* Since the type T extends Comparable it must
 		 * implement the compareTo method thus we can pass

@@ -78,6 +78,9 @@ public class HomeController {
 	    return experiment;
 	  }
 	
+	/* THIS METHOD SHOULD BE REMOVED --- its only here for learning purposes!
+	 * That is writing tests using mockito.
+	 */
 	@RequestMapping(value={"/sort2"}, method=RequestMethod.GET)
 	public String getTrial(Model uiModel) {
 		logger.info("*** At getTrial controller ");		

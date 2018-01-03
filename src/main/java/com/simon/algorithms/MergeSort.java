@@ -6,7 +6,7 @@ import java.util.List;
 //FYI, O(n*log( n )). Java's Collection.sort() is an implementation of MergeSort.
 
 public class MergeSort<T extends Comparable<T>> implements SortAlgorithm<T>  {
-
+	
 	@Override
 	public void sort(List<T> array, Compare<T> c) {
 		mergeSort(array, 0, array.size()-1, c);
