@@ -9,11 +9,35 @@ import com.simon.algorithms.Compare;
 import com.simon.algorithms.SelectionSort;
 import com.simon.algorithms.SortAlgorithm;
 import com.simon.dom.Trial;
+import com.simon.util.AlgorithmFactory;
 import com.simon.util.RandomFactory;
 
 @Component
 public class AlgorithmService {
 
+	public <T extends Comparable<T>> List<Trial<T>> runTrial(Trial<T> trial, int numOfTrials) {
+		
+		List<Trial<T>> resultSet = new ArrayList<>();
+		
+		/* Setting the data, using a factory to generate a list n elements 
+		 * of base type x (where x and n were specified in the trial).
+		 */
+		trial.setData( RandomFactory.getRandomObjectList(trial.getElementType(), trial.getnumOfElements()));
+		
+		/* Using a factory to create the required algorithm as
+		 * specified in the trial.
+		 */
+		SortAlgorithm<T> sortAlgorithm = AlgorithmFactory.getSortingAlgorithm("MergeSort");
+		
+		/* Since the type T extends Comparable it must
+		 * implement the compareTo method thus we can pass
+		 * it as a method references to the sort method.
+		 */
+		sortAlgorithm.sort(trial.getData(), T::compareTo);
+		resultSet.add(trial);
+		return resultSet;				
+	}
+	
 	public <T extends Comparable<T>> List<Trial<T>> runTrial(int arraySize, String type, int numOfTrials, SortAlgorithm<T> sortAlgorithm) {
 
 		List<Trial<T>> resultSet = new ArrayList<>();

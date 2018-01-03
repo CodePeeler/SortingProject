@@ -1,5 +1,6 @@
 package com.simon.web;
 
+import com.simon.algorithms.MergeSort;
 import com.simon.algorithms.SelectionSort;
 import com.simon.algorithms.SortAlgorithm;
 import com.simon.dom.Trial;
@@ -52,19 +53,29 @@ public class HomeController {
 			
 	@RequestMapping(value={"/sort"}, method=RequestMethod.GET, headers={"Accept=application/json"})
 	@ResponseBody
-	public List<Trial<Integer>> getTrialInJSON(Model uiModel) {
+	public List< List<Trial<Integer>> > getExperimentInJSON(Model uiModel) {
 		logger.info("At getTrialInJSON controller ");
 		
 		//This info should come from ui - hard coded for testing purposes!
 		int arraySize = 10;
 		String arrayType = "Integer";
 		int numOfTrials = 1;
-		SortAlgorithm<Integer> selectionSort = new SelectionSort<>();		
-	
-		List<Trial<Integer>> trials = algorithmService.runTrial(arraySize, arrayType, numOfTrials, selectionSort);
-		uiModel.addAttribute("trial", trials.get(0));
-	    
-	    return trials;
+		
+		List< List<Trial<Integer>> > experiment = new ArrayList<List<Trial<Integer>>>();;
+		
+		// Create a trial object.
+		Trial<Integer> trial_01 = new Trial<Integer>(arrayType, arraySize, "SelectionSort");
+		Trial<Integer> trial_02 = new Trial<Integer>(arrayType, arraySize, "MergeSort");
+		
+		/* Note, 'trials' may contain one or more Trial's. However, the specification will
+		 * be the same, i.e sorting algorithm, list size, element type */
+		List<Trial<Integer>> trials_01 = algorithmService.runTrial(trial_01, numOfTrials);
+		List<Trial<Integer>> trials_02 = algorithmService.runTrial(trial_02, numOfTrials);
+		
+		//uiModel.addAttribute("trial", trials.get(0));
+		experiment.add(trials_01);
+		experiment.add(trials_02);
+	    return experiment;
 	  }
 	
 	@RequestMapping(value={"/sort2"}, method=RequestMethod.GET)
